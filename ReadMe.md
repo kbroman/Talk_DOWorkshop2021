@@ -1,7 +1,7 @@
 ### Talk on &ldquo;21 years of R/qtl: maintaining, supporting, and sustaining scientific software&rdquo;
 
 
-These are slides for a talk that I will give at the
+These are slides for a talk that I gave at the
 Department of Biomedical Informatics
 at the University of Pittsburgh on 29 Jan 2021.
 
