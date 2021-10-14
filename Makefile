@@ -8,6 +8,9 @@ FIGS = Figs/scale_fig1.pdf \
 	   Figs/rqtl2_scan.pdf \
 	   Figs/congenic.pdf
 
+docs/$(STEM).pdf: $(STEM).pdf
+	cp $< $@
+
 $(STEM).pdf: $(STEM).tex header.tex $(FIGS)
 	xelatex $<
 
