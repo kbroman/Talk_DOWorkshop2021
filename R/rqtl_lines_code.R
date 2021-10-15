@@ -2,14 +2,17 @@
 
 library(broman)
 source("colors.R")
+bgcolor <- "white"
+fgcolor <- "black"
+col_lab <- "slateblue"
 
 lines <- read.csv("../Data/lines_code_by_version.csv")
 lines <- lines[nrow(lines):1,]
 library(lubridate)
 lines[,2] <- ymd(as.character(lines[,2]))
 
-pdf("../Figs/rqtl_lines_code.pdf", width=10, height=6.5, pointsize=18)
-par(mar=c(3.6, 5.1, 2.3, 0.1),las=1,fg="white",col="white",col.axis="white",col.lab="lightblue",
+pdf("../Figs/rqtl_lines_code.pdf", width=11, height=5.5, pointsize=18)
+par(mar=c(1.1, 5.1, 1.1, 0.1),las=1,fg=fgcolor,col=fgcolor,col.axis=fgcolor,col.lab=col_lab,
     bg=bgcolor,bty="n")
 
 yat <- seq(0, 40000, by=5000)
@@ -25,22 +28,22 @@ xat <- (xaxis + as.numeric(ymd(paste0(yr-1, "-12-31"))))/2
 grayplot(lines[,2], lines[,3], xlab="", ylab="", yat=yat, xat=NA,
          hlines=yat, pch=21, col="black", bg=color2[1], ylim=c(0, 40000),
          mgp.x=c(1.6, 0.4, 0), vlines=xat, yaxs="i", vlines.col="gray65",
-         hlines.col="white", bgcolor="gray85",
+         hlines.col=fgcolor, bgcolor="gray85",
          xlim=range(xaxis), xaxs="i", mgp.y=c(3.3, 0.4, 0))
-title(xlab="Year", col.lab="lightblue", cex.lab=1.7, mgp=c(2,0,0))
-title(ylab="Lines of code", col.lab="lightblue", cex.lab=1.5, mgp=c(3.6,0,0))
+#title(xlab="Year", col.lab=col_lab, cex.lab=1.7, mgp=c(2,0,0))
+title(ylab="Lines of code", col.lab=col_lab, cex.lab=1.5, mgp=c(3.6,0,0))
 for(i in 4:5)
   points(lines[,2], lines[,i], pch=21, col="black", bg=color2[i-2])
 
 u <- par("usr")
 for(i in 2:length(xaxis)) {
-  col <- ifelse(i %% 2, "gray65", "gray45")
+  col <- ifelse(i %% 2, "gray65", "gray85")
   h <- diff(u[3:4])*0.05
   start <- max(c(xaxis[i-1], u[1]))
   end <- min(c(xaxis[i], u[2]))
   rect(start, u[3], end, u[3]-h, xpd=TRUE,
        col=col, border=col, lend=1, ljoin=1)
-  text((start + end)/2, u[3]-h/2, yr[i-1], col="white", xpd=TRUE, cex=0.6)
+  text((start + end)/2, u[3]-h/2, yr[i-1], col=fgcolor, xpd=TRUE, cex=0.6)
 }
 abline(h=0, col="black")
 
@@ -56,8 +59,9 @@ text(svn, txt, "svn", adj=c(0.5, 0), col=col)
 text(git, txt, "git", adj=c(0.5, 0), col=col)
 
 x <- max(lines[,2])
-x2 <- ymd("2021-08-01")
-text(c(x2,x2,x), lines[nrow(lines),3:5] + c(0,0,+1800),
-     c("R", "C", "doc"), col=col, adj=c(0.5, 0.5), cex=1)
+x2 <- ymd("2021-12-20")
+text(c(x2,x2,x2), lines[nrow(lines),3:5] - 1800*c(1,-1,-1),
+     c("R", "C", "doc"), col=col, adj=c(1, 0.5), cex=1)
 
+box()
 dev.off()
