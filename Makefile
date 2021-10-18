@@ -5,7 +5,8 @@ STEM = rqtl2
 FIGS = Figs/rqtl_lines_code.pdf \
 	   Figs/rqtl2_scan.pdf \
 	   Figs/intercross.pdf \
-	   Figs/hs.pdf
+	   Figs/hs.pdf \
+	   Figs/genome_reconstr.pdf
 
 docs/$(STEM).pdf: $(STEM).pdf
 	cp $< $@
