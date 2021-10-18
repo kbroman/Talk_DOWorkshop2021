@@ -6,7 +6,7 @@ Diversity Outbred mice on 27 Oct 2021, hosted by the
 [David James lab](https://www.sydney.edu.au/charles-perkins-centre/our-research/research-groups/david-james-lab.html)
 at the [University of Sydney](https://www.sydney.edu.au/).
 
-PDF of slides will be at <https://kbroman.org/Talk_DOWorkshop2021>.
+PDF of slides will be at <https://kbroman.org/Talk_DOWorkshop2021/rqtl2.pdf>.
 
 ---
 
