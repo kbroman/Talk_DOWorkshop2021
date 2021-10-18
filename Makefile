@@ -4,9 +4,7 @@ STEM = rqtl2
 
 FIGS = Figs/rqtl_lines_code.pdf \
 	   Figs/rqtl2_scan.pdf \
-	   Figs/intercross.pdf \
-	   Figs/lodcurve_insulin_with_effects.pdf
-
+	   Figs/intercross.pdf
 docs/$(STEM).pdf: $(STEM).pdf
 	cp $< $@
 
@@ -26,7 +24,4 @@ Figs/rqtl2_scan.pdf: R/rqtl2_figs.R R/colors.R
 	cd $(<D);R $(R_OPTS) -e "source('$(<F)')"
 
 Figs/intercross.pdf: R/intercross.R
-	cd $(<D);R $(R_OPTS) -e "source('$(<F)')"
-
-Figs/lodcurve_insulin_with_effects.pdf: R/lodcurve_insulin.R
 	cd $(<D);R $(R_OPTS) -e "source('$(<F)')"
