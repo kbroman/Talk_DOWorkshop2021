@@ -5,6 +5,8 @@ source("colors.R")
 bgcolor <- "white"
 fgcolor <- "black"
 col_lab <- "slateblue"
+# override the point colors
+color2 <- broman::brocolors("crayons")[c("Cornflower", "Tickle Me Pink", "Sea Green")]
 
 lines <- read.csv("../Data/lines_code_by_version.csv")
 lines <- lines[nrow(lines):1,]
