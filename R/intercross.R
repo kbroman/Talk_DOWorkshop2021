@@ -5,8 +5,8 @@
 library(broman)
 library(simcross)
 
-color <- brocolors("crayons")[c("Cornflower", "Blush")]
 source("colors.R")
+color <- brocolors("crayons")[c("Cornflower", "Tickle Me Pink")]
 
 pdf("../Figs/intercross.pdf", width=11, height=6, pointsize=14)
 par(fg="black", bty="n", bg="white")
